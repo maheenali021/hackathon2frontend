@@ -1,0 +1,101 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  /* Purple Dark Theme Palette */
+  --bg-primary: #1F1B24;
+  --bg-secondary: #292430;
+  /* Slightly lighter for cards if needed, but Neumorphism usually uses same BG */
+  --text-primary: #EDE7F6;
+  --text-secondary: #B39DDB;
+  --accent-primary: #7C4DFF;
+  --accent-secondary: #651FFF;
+  --success: #00E676;
+  --error: #FF5252;
+  --warning: #FFAB40;
+
+  /* Neumorphic Shadows for #1F1B24 */
+  /* Top-Left (Light Source) */
+  --shadow-light: rgba(255, 255, 255, 0.05);
+  /* Bottom-Right (Shadow) */
+  --shadow-dark: rgba(0, 0, 0, 0.6);
+}
+
+body {
+  background-color: var(--bg-primary);
+  color: var(--text-primary);
+  font-family: var(--font-geist-sans), sans-serif;
+}
+
+/* Neumorphic Utilities */
+@layer components {
+  .neu-flat {
+    background: var(--bg-primary);
+    box-shadow:
+      -5px -5px 10px var(--shadow-light),
+      5px 5px 10px var(--shadow-dark);
+    border-radius: 1.5rem;
+    /* Large rounded */
+  }
+
+  .neu-pressed {
+    background: var(--bg-primary);
+    box-shadow:
+      inset 5px 5px 10px var(--shadow-dark),
+      inset -5px -5px 10px var(--shadow-light);
+    border-radius: 1rem;
+  }
+
+  .neu-convex {
+    background: linear-gradient(145deg, #211d27, #1c1820);
+    box-shadow:
+      -5px -5px 10px var(--shadow-light),
+      5px 5px 10px var(--shadow-dark);
+    border-radius: 1rem;
+  }
+
+  .neu-concave {
+    background: linear-gradient(145deg, #1c1820, #211d27);
+    box-shadow:
+      -5px -5px 10px var(--shadow-light),
+      5px 5px 10px var(--shadow-dark);
+    border-radius: 1rem;
+  }
+
+  .neu-btn {
+    @apply transition-all duration-300 active:scale-95;
+    background: var(--bg-primary);
+    box-shadow:
+      -4px -4px 8px var(--shadow-light),
+      4px 4px 8px var(--shadow-dark);
+  }
+
+  .neu-btn:hover {
+    box-shadow:
+      -6px -6px 12px var(--shadow-light),
+      6px 6px 12px var(--shadow-dark);
+    color: var(--accent-primary);
+  }
+
+  .neu-btn-primary {
+    @apply transition-all duration-300;
+    background: var(--accent-primary);
+    box-shadow:
+      -4px -4px 8px rgba(124, 77, 255, 0.2),
+      4px 4px 8px rgba(0, 0, 0, 0.4);
+    color: white;
+  }
+
+  .neu-btn-primary:active {
+    box-shadow: inset 2px 2px 5px rgba(0, 0, 0, 0.3);
+  }
+
+  .neu-input {
+    background: var(--bg-primary);
+    box-shadow:
+      inset 2px 2px 5px var(--shadow-dark),
+      inset -2px -2px 5px var(--shadow-light);
+    @apply border-none outline-none text-gray-200 px-4 py-3 rounded-xl w-full focus:ring-1 focus:ring-purple-500/50;
+  }
+}
