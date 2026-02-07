@@ -1,0 +1,58 @@
+Metadata-Version: 2.4
+Name: todo-app
+Version: 0.1.0
+Summary: Console-based todo application
+Author-email: Maheen Ali <maheen@example.com>
+License: MIT
+Requires-Python: >=3.13
+Description-Content-Type: text/markdown
+
+# Console-Based Todo Application
+
+A simple command-line todo application written in Python that allows users to manage their tasks through a menu-driven interface.
+
+## Features
+
+- Add new tasks with titles and optional descriptions
+- View all tasks with their completion status
+- Update existing tasks
+- Delete tasks
+- Mark tasks as complete/incomplete
+- In-memory storage (no persistence)
+
+## Requirements
+
+- Python 3.13 or higher
+
+## Installation
+
+1. Clone or download the repository
+2. Navigate to the project directory
+3. Run the application directly with Python:
+
+```bash
+python src/todo_app.py
+```
+
+## Usage
+
+The application presents a numbered menu interface:
+
+1. **Add new task**: Enter a title (required) and description (optional)
+2. **List all tasks**: View all tasks with their ID, status, and details
+3. **Update task**: Modify an existing task by its ID
+4. **Delete task**: Remove a task by its ID
+5. **Toggle complete/incomplete**: Change the completion status of a task
+6. **Quit**: Exit the application
+
+## Architecture
+
+The application follows a clean architecture pattern:
+
+- `src/models/task.py`: Defines the Task data model
+- `src/todo_storage.py`: Implements in-memory storage with CRUD operations
+- `src/todo_app.py`: Contains the main application logic and menu system
+
+## License
+
+MIT
